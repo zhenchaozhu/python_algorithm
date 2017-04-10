@@ -5,5 +5,14 @@
 
 file_path = '../iplist.txt'
 
+ip_map = {}
 with open(file_path, 'r') as f:
-    pass
+    content = f.readlines()
+    for data in content:
+        data = data.strip()
+        if data in ip_map:
+            ip_map[data] += 1
+        else:
+            ip_map[data] = 1
+
+print ip_map
